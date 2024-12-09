@@ -148,8 +148,6 @@ STRUCT_END
 /** @CCORD_pub_struct{discord_modify_guild_sticker} */
 #if GENCODECS_RECIPE & (DATA | JSON)
 PUB_STRUCT(discord_modify_guild_sticker)
-/** @CCORD_reason{reason} */
-FIELD_PTR(reason, char, *)
 /** name of the sticker (2-30 characters) */
 FIELD_PTR(name, char, *)
 /** description of the sticker (empty or 2-100 characters) */
