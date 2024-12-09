@@ -404,7 +404,7 @@ jsmnf_find_path(const struct jsmnf_pair *head,
 
 #define RECALLOC_OR_ERROR(ptr, prev_size)                                     \
     do {                                                                      \
-        const unsigned new_size = *(prev_size)*2;                             \
+        const unsigned new_size = *(prev_size) * 2;                           \
         void *tmp = realloc((ptr), new_size * sizeof *(ptr));                 \
         if (!tmp) return JSMN_ERROR_NOMEM;                                    \
         (ptr) = tmp;                                                          \

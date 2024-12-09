@@ -53,7 +53,6 @@ Done! It is that simple, you can now proceed to read its value.
 
 ## Reading env variables
 
-
 You have set the env variable - now you **will need to get it**. There are two easy ways to **get the env variable value**, take a look and choose the best one for you:
 
 Example using the `getenv` function:

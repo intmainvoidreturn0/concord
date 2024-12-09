@@ -236,7 +236,7 @@ struct logconf {
         char *fname;
         /** pointer to logging output file */
         FILE *f;
-    } * logger, *http;
+    } *logger, *http;
 
     /** list of 'id' that should be ignored */
     struct {

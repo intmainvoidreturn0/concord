@@ -8,8 +8,8 @@
  * @brief The flags to poll for
  */
 enum io_poller_events {
-  IO_POLLER_IN  = 1 << 0,
-  IO_POLLER_OUT = 1 << 1,
+    IO_POLLER_IN = 1 << 0,
+    IO_POLLER_OUT = 1 << 1,
 };
 
 /**
@@ -34,11 +34,10 @@ void io_poller_destroy(struct io_poller *io);
 
 /**
  * @brief wakeup the thread listening to this io_poller
- * 
+ *
  * @param io the io_poller to wake up
  */
-void
-io_poller_wakeup(struct io_poller *io);
+void io_poller_wakeup(struct io_poller *io);
 
 /**
  * @brief wait for events to be triggered

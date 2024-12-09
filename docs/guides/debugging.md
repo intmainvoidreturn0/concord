@@ -38,7 +38,7 @@ Since we now installed `GDB`, we can use it. For example, if the file that you w
 
 ```console
 $ gdb ./ConcordGuides
-``` 
+```
 
 After we execute this command, you should see some copyright messages; just press `c` and `enter`, and you are now inside GDB's shell.
 

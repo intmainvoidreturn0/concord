@@ -1,13 +1,18 @@
 # Discord API Roadmap
+
 This document outlines the Discord API currently supported by Concord.
 
 ## Reference
+
 ### Authentication
+
 - [x] [Bot Token Authentication](https://discord.com/developers/docs/reference#authentication-example-bot-token-authorization-header)
 - [ ] [Bearer Token Authentication](https://discord.com/developers/docs/reference#authentication-example-bearer-token-authorization-header)
 
 ## Interactions
+
 ### Application Commands
+
 - [x] [Application Command Structure](https://discord.com/developers/docs/interactions/application-commands#application-command-object)
 - [x] [Application Command Types](https://discord.com/developers/docs/interactions/application-commands#application-command-types)
 - [x] [Application Command Option](https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure)
@@ -34,14 +39,18 @@ This document outlines the Discord API currently supported by Concord.
 - [x] [Get Application Command Permissions](https://discord.com/developers/docs/interactions/application-commands#get-application-command-permissions)
 - [x] [Edit Application Command Permissions](https://discord.com/developers/docs/interactions/application-commands#edit-application-command-permissions)
 - [x] [Batch Edit Application Command Permissions](https://discord.com/developers/docs/interactions/application-commands#batch-edit-application-command-permissions)
+
 ### Message Components
+
 - [x] [Component Structure](https://discord.com/developers/docs/interactions/message-components#component-object-component-structure)
 - [x] [Component Types](https://discord.com/developers/docs/interactions/message-components#component-object-component-types)
 - [x] [Button Structure](https://discord.com/developers/docs/interactions/message-components#button-object-button-structure)
 - [x] [Button Styles](https://discord.com/developers/docs/interactions/message-components#button-object-button-styles)
 - [x] [Select Menu Structure](https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-menu-structure)
 - [x] [Select Option Structure](https://discord.com/developers/docs/interactions/message-components#select-menu-object-select-option-structure)
+
 ### Receiving and Responding
+
 - [x] [Interaction Structure](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-structure)
 - [x] [Interaction Type](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-type)
 - [x] [Interaction Data Structure](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-data-structure)
@@ -61,11 +70,15 @@ This document outlines the Discord API currently supported by Concord.
 - [x] [Delete Followup Message](https://discord.com/developers/docs/interactions/receiving-and-responding#delete-followup-message)
 
 ## Resources
+
 ### Application
+
 - [x] [Application Structure](https://discord.com/developers/docs/resources/application#application-object-application-structure)
 - [x] [Application Flags](https://discord.com/developers/docs/resources/application#application-object-application-flags)
 - [x] [Install Params Structure](https://discord.com/developers/docs/resources/application#install-params-object-install-params-structure)
+
 ### Audit Log
+
 - [x] [Audit Log Structure](https://discord.com/developers/docs/resources/audit-log#audit-log-object)
 - [x] [Audit Log Entry Structure](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object)
 - [x] [Audit Log Events](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events)
@@ -73,7 +86,9 @@ This document outlines the Discord API currently supported by Concord.
 - [x] [Audit Log Change Structure](https://discord.com/developers/docs/resources/audit-log#audit-log-change-object)
 - [x] [Audit Log Change Key](https://discord.com/developers/docs/resources/audit-log#audit-log-change-object-audit-log-change-key)
 - [x] [Get Guild Audit Log](https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log)
+
 ### Auto Moderation
+
 - [x] [Auto Moderation Rule Structure](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-auto-moderation-rule-structure)
 - [x] [Trigger Types](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-types)
 - [x] [Trigger Metadata Structure](https://discord.com/developers/docs/resources/auto-moderation#auto-moderation-rule-object-trigger-metadata)
@@ -87,7 +102,9 @@ This document outlines the Discord API currently supported by Concord.
 - [x] [Create Auto Moderation Rule](https://discord.com/developers/docs/resources/auto-moderation#create-auto-moderation-rule)
 - [x] [Modify Auto Moderation Rule](https://discord.com/developers/docs/resources/auto-moderation#modify-auto-moderation-rule)
 - [x] [Delete Auto Moderation Rule](https://discord.com/developers/docs/resources/auto-moderation#delete-auto-moderation-rule)
+
 ### Channels
+
 - [x] [Channel Structure](https://discord.com/developers/docs/resources/channel#channel-object)
 - [x] [Channel Types](https://discord.com/developers/docs/resources/channel#channel-object-channel-types)
 - [x] [Message Structure](https://discord.com/developers/docs/resources/channel#message-object)
@@ -153,14 +170,18 @@ This document outlines the Discord API currently supported by Concord.
 - [x] [List Public Archived Threads](https://discord.com/developers/docs/resources/channel#list-public-archived-threads)
 - [x] [List Private Archived Threads](https://discord.com/developers/docs/resources/channel#list-private-archived-threads)
 - [x] [List Joined Private Arhived Threads](https://discord.com/developers/docs/resources/channel#list-joined-private-archived-threads)
+
 ### Emoji
+
 - [x] [Emoji Structure](https://discord.com/developers/docs/resources/emoji#emoji-object)
 - [x] [List Guild Emojis](https://discord.com/developers/docs/resources/emoji#list-guild-emojis)
 - [x] [Get Guild Emoji](https://discord.com/developers/docs/resources/emoji#get-guild-emoji)
 - [x] [Create Guild Emoji](https://discord.com/developers/docs/resources/emoji#create-guild-emoji)
 - [x] [Modify Guild Emoji](https://discord.com/developers/docs/resources/emoji#modify-guild-emoji)
 - [x] [Delete Guild Emoji](https://discord.com/developers/docs/resources/emoji#delete-guild-emoji)
+
 ### Guild
+
 - [x] [Guild Structure](https://discord.com/developers/docs/resources/guild#guild-object)
 - [x] [Default Message Notification Level](https://discord.com/developers/docs/resources/guild#guild-object-default-message-notification-level)
 - [x] [Explicit Content Filter Level](https://discord.com/developers/docs/resources/guild#guild-object-explicit-content-filter-level)
@@ -218,7 +239,9 @@ This document outlines the Discord API currently supported by Concord.
 - [x] [Modify Guild Welcome Screen](https://discord.com/developers/docs/resources/guild#modify-guild-welcome-screen)
 - [x] [Modify Current User Voice State](https://discord.com/developers/docs/resources/guild#modify-current-user-voice-state)
 - [x] [Modify User Voice State](https://discord.com/developers/docs/resources/guild#modify-user-voice-state)
+
 ### Guild Scheduled Event
+
 - [x] [Guild Scheduled Event Structure](https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-structure)
 - [x] [Guild Scheduled Event Privacy Level](https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-privacy-level)
 - [x] [Guild Scheduled Event Entity Types](https://discord.com/developers/docs/resources/guild-scheduled-event#guild-scheduled-event-object-guild-scheduled-event-entity-types)
@@ -231,7 +254,9 @@ This document outlines the Discord API currently supported by Concord.
 - [x] [Modify Guild Scheduled Event](https://discord.com/developers/docs/resources/guild-scheduled-event#modify-guild-scheduled-event)
 - [x] [Delete Guild Scheduled Event](https://discord.com/developers/docs/resources/guild-scheduled-event#delete-guild-scheduled-event)
 - [x] [Get Guild Scheduled Event Users](https://discord.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users)
+
 ### Guild Template
+
 - [x] [Guild Template Structure](https://discord.com/developers/docs/resources/guild-template#guild-template-object)
 - [x] [Get Guild Template](https://discord.com/developers/docs/resources/guild-template#get-guild-template)
 - [x] [Create Guild from Guild Template](https://discord.com/developers/docs/resources/guild-template#create-guild-from-guild-template)
@@ -240,20 +265,26 @@ This document outlines the Discord API currently supported by Concord.
 - [x] [Sync Guild Template](https://discord.com/developers/docs/resources/guild-template#sync-guild-template)
 - [x] [Modify Guild Template](https://discord.com/developers/docs/resources/guild-template#modify-guild-template)
 - [x] [Delete Guild Template](https://discord.com/developers/docs/resources/guild-template#delete-guild-template)
+
 ### Invite
+
 - [x] [Invite Structure](https://discord.com/developers/docs/resources/invite#invite-object)
 - [x] [Target User Types](https://discord.com/developers/docs/resources/invite#invite-object-target-user-types)
 - [x] [Invite Metadata Structure](https://discord.com/developers/docs/resources/invite#invite-metadata-object)
 - [x] [Get Invite](https://discord.com/developers/docs/resources/invite#get-invite)
 - [x] [Delete Invite](https://discord.com/developers/docs/resources/invite#delete-invite)
+
 ### Stage Instance
+
 - [x] [Stage Instance Structure](https://discord.com/developers/docs/resources/stage-instance#stage-instance-object-stage-instance-structure)
 - [x] [Privacy Level](https://discord.com/developers/docs/resources/stage-instance#stage-instance-object-privacy-level)
 - [x] [Create Stage Instance](https://discord.com/developers/docs/resources/stage-instance#create-stage-instance)
 - [x] [Get Stage Instance](https://discord.com/developers/docs/resources/stage-instance#get-stage-instance)
 - [x] [Modify Stage Instance](https://discord.com/developers/docs/resources/stage-instance#modify-stage-instance)
 - [x] [Delete Stage Instance](https://discord.com/developers/docs/resources/stage-instance#delete-stage-instance)
+
 ### Sticker
+
 - [x] [Sticker Structure](https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-structure)
 - [x] [Sticker Types](https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-types)
 - [x] [Sticker Format Types](https://discord.com/developers/docs/resources/sticker#sticker-object-sticker-format-types)
@@ -266,7 +297,9 @@ This document outlines the Discord API currently supported by Concord.
 - [ ] [Create Guild Sticker](https://discord.com/developers/docs/resources/sticker#create-guild-sticker)
 - [x] [Modify Guild Sticker](https://discord.com/developers/docs/resources/sticker#modify-guild-sticker)
 - [x] [Delete Guild Sticker](https://discord.com/developers/docs/resources/sticker#delete-guild-sticker)
+
 ### User
+
 - [x] [User Structure](https://discord.com/developers/docs/resources/user#user-object)
 - [x] [User Flags](https://discord.com/developers/docs/resources/user#user-object-user-flags)
 - [x] [Premium Types](https://discord.com/developers/docs/resources/user#user-object-premium-types)
@@ -280,11 +313,15 @@ This document outlines the Discord API currently supported by Concord.
 - [x] [Create DM](https://discord.com/developers/docs/resources/user#create-dm)
 - [x] [Create Group DM](https://discord.com/developers/docs/resources/user#create-group-dm)
 - [x] [Get User Connections](https://discord.com/developers/docs/resources/user#get-user-connections)
+
 ### Voice Resouce
+
 - [x] [Voice State Structure](https://discord.com/developers/docs/resources/voice#voice-state-object)
 - [x] [Voice Region Structure](https://discord.com/developers/docs/resources/voice#voice-region-object)
 - [x] [List Voice Regions](https://discord.com/developers/docs/resources/voice#list-voice-regions)
+
 ### Webhook
+
 - [x] [Webhook Structure](https://discord.com/developers/docs/resources/webhook#webhook-object)
 - [x] [Webhook Types](https://discord.com/developers/docs/resources/webhook#webhook-object-webhook-types)
 - [x] [Create Webhook](https://discord.com/developers/docs/resources/webhook#create-webhook)
@@ -303,7 +340,9 @@ This document outlines the Discord API currently supported by Concord.
 - [x] [Delete Webhook Message](https://discord.com/developers/docs/resources/webhook#delete-webhook-message)
 
 ## Topics
+
 ### Gateway
+
 - [x] [Resuming](https://discord.com/developers/docs/topics/gateway#resuming)
 - [ ] [Encoding and Compression](https://discord.com/developers/docs/topics/gateway#encoding-and-compression)
 - [x] [Connecting to the Gateway](https://discord.com/developers/docs/topics/gateway#connecting-to-the-gateway)
@@ -315,21 +354,30 @@ This document outlines the Discord API currently supported by Concord.
 - [x] [Commands and Events](https://discord.com/developers/docs/topics/gateway#commands-and-events)
 - [x] [Get Gateway](https://discord.com/developers/docs/topics/gateway#get-gateway)
 - [x] [Get Gateway Bot](https://discord.com/developers/docs/topics/gateway#get-gateway-bot)
+
 ### OAuth2
+
 - [x] [Get Current Bot Application Information](https://discord.com/developers/docs/topics/oauth2#get-current-bot-application-information)
 - [x] [Get Current Authorization Information](https://discord.com/developers/docs/topics/oauth2#get-current-authorization-information)
+
 ### Opcodes and Status Codes
+
 - [x] [Gateway Opcodes](https://discord.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-opcodes)
 - [x] [Gateway Close Event Codes](https://discord.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-close-event-codes)
 - [x] [Voice Opcodes](https://discord.com/developers/docs/topics/opcodes-and-status-codes#voice-voice-opcodes)
 - [x] [Voice Close Event Codes](https://discord.com/developers/docs/topics/opcodes-and-status-codes#voice-voice-close-event-codes)
 - [x] [HTTP Response Codes](https://discord.com/developers/docs/topics/opcodes-and-status-codes#http-http-response-codes)
 - [x] [JSON Error Codes](https://discord.com/developers/docs/topics/opcodes-and-status-codes#json-json-error-codes)
+
 ### Permissions
+
 - [x] [Bitwise Permission Flags](https://discord.com/developers/docs/topics/permissions#permissions-bitwise-permission-flags)
 - [x] [Role Structure](https://discord.com/developers/docs/topics/permissions#role-object)
 - [x] [Role Tags Structure](https://discord.com/developers/docs/topics/permissions#role-object-role-tags-structure)
+
 ### RateLimits
+
 - [x] [Exceeding A Rate Limit](https://discord.com/developers/docs/topics/rate-limits#exceeding-a-rate-limit)
 - [x] [Invalid Request Limit](https://discord.com/developers/docs/topics/rate-limits#invalid-request-limit)
+
 ### Voice Connections

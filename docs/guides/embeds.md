@@ -41,26 +41,26 @@ discord_create_message(client, msg->channel_id, &params, NULL);
 
 As you can see we are creating a structure with an array of embeds, which contain the information we want the bot to send.
 
-*Keep in mind that this is a simple example, click [here](https://discord.com/developers/docs/resources/channel#embed-object) for a more thorough explanation of each embed field*
+_Keep in mind that this is a simple example, click [here](https://discord.com/developers/docs/resources/channel#embed-object) for a more thorough explanation of each embed field_
 
 ![Embed example](screenshots/embeds/embeds_example.png "Embed example")
 
 [Embed structure](https://discord.com/developers/docs/resources/channel#embed-object):
 
-* title: The title of the embed, the top part of the embed.
-* description: The description/content of the embed.
-* url: A URL that if someone clicks on the title of the embed, will redirect to it (NOTE: Title is required).
-* color: A color, that can be represented by a binary number, HEX number, etc.
-* timestamp: A `uint64_t` value with the current time, this value can be retrieved with [`discord_timestamp()`](https://cogmasters.github.io/concord/group__DiscordClient.html#ga15a8fe1a6d3f30c18c6985b3afae11f5).
+- title: The title of the embed, the top part of the embed.
+- description: The description/content of the embed.
+- url: A URL that if someone clicks on the title of the embed, will redirect to it (NOTE: Title is required).
+- color: A color, that can be represented by a binary number, HEX number, etc.
+- timestamp: A `uint64_t` value with the current time, this value can be retrieved with [`discord_timestamp()`](https://cogmasters.github.io/concord/group__DiscordClient.html#ga15a8fe1a6d3f30c18c6985b3afae11f5).
 
 [Embed footer structure](https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure):
 
-* text: A string up to 2048 characters in length.
-* icon_url: A valid URL that redirects to an image.
+- text: A string up to 2048 characters in length.
+- icon_url: A valid URL that redirects to an image.
 
 [Embed image structure](https://discord.com/developers/docs/resources/channel#embed-object-embed-image-structure):
 
-* url: Same as footer->icon_URL.
+- url: Same as footer->icon_URL.
 
 After creating the embed structure, now we will make the last structure so we can pass all the information needed to send a message.
 

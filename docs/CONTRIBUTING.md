@@ -28,7 +28,7 @@ When writing C code, follow the [coding guidelines](CODING_GUIDELINES.md) alread
 
 When you write new functionality or fix bugs, it is important that you don't fiddle all over the source files and functions. Remember that it is likely that other people have done changes in the same source files as you have and possibly even in the same functions. If you bring completely new functionality, try writing it in a new source file. If you fix bugs, try to fix one bug at a time and send them as separate patches.
 
-### Patch Against Recent Source 
+### Patch Against Recent Source
 
 Please try to get the latest available sources to make your patches against. It makes the lives of the developers so much easier.
 
@@ -45,7 +45,7 @@ Thorougly test your patch before sending a PR for approval. If you are implement
 ### Semantic Commit Messages
 
 For organization purposes we standardize how our commits are staged.
-This section is copied from [link](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716) 
+This section is copied from [link](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
 to save you a click.
 
 See how a minor change to your commit message style can make you a better programmer.

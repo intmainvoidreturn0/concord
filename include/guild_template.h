@@ -27,7 +27,7 @@ CCORDcode discord_get_guild_template(struct discord *client,
 /**
  * @brief Create a new guild based on a template
  * @note This endpoint can be used only by bots in less than 10 guilds
- * 
+ *
  * @param client the client created with discord_init()
  * @param template_code the guild template code
  * @param params the request parameters
@@ -43,7 +43,7 @@ CCORDcode discord_create_guild_from_guild_template(
 /**
  * @brief Returns @ref discord_guild_templates from a guild
  * @note Requires the `MANAGE_GUILD` permission
- * 
+ *
  * @param client the client created with discord_init()
  * @param guild_id the guild to fetch the templates from
  * @CCORD_ret_obj{ret,guild_templates}

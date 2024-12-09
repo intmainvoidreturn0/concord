@@ -7,7 +7,6 @@
 #ifndef DISCORD_VOICE_CONNECTIONS_H
 #define DISCORD_VOICE_CONNECTIONS_H
 
-
 #define DISCORD_VCS_URL_SUFFIX "?v=4"
 /* TODO: add to DiscordLimitsGeneral group */
 #define DISCORD_MAX_VCS 512

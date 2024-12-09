@@ -17,7 +17,7 @@
  * @note requires the user to be a moderator of the Stage channel
  *
  * @param client the client created with discord_init()
- * @param params the request parameters 
+ * @param params the request parameters
  * @CCORD_ret_obj{ret,stage_instance}
  * @CCORD_return
  */
@@ -45,7 +45,7 @@ CCORDcode discord_get_stage_instance(struct discord *client,
  *
  * @param client the client created with discord_init()
  * @param channel_id the stage channel id
- * @param params the request parameters 
+ * @param params the request parameters
  * @CCORD_ret_obj{ret,stage_instance}
  * @CCORD_return
  */

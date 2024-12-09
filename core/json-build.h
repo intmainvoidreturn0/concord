@@ -20,13 +20,13 @@ extern "C" {
 #endif
 
 #ifndef JSONB_MAX_DEPTH
-/** 
+/**
  * Maximum JSON nesting depth, if default value is unwanted then it should be
  *      defined before json-build.h is included:
  *
  * #define JSONB_MAX_DEPTH 256
  * #include "json-build.h"
- * */  
+ * */
 #define JSONB_MAX_DEPTH 128
 #endif /* JSONB_MAX_DEPTH */
 
@@ -208,15 +208,24 @@ static const char *
 _jsonb_eval_state(enum jsonbstate state)
 {
     switch (state) {
-    case JSONB_ARRAY_OR_OBJECT_OR_VALUE: return "array or object or value";
-    case JSONB_OBJECT_KEY_OR_CLOSE: return "object key or close";
-    case JSONB_OBJECT_NEXT_KEY_OR_CLOSE: return "object next key or close";
-    case JSONB_OBJECT_VALUE: return "object value";
-    case JSONB_ARRAY_VALUE_OR_CLOSE: return "array value or close";
-    case JSONB_ARRAY_NEXT_VALUE_OR_CLOSE: return "array next value or close";
-    case JSONB_ERROR: return "error";
-    case JSONB_DONE: return "done";
-    default: return "unknown";
+    case JSONB_ARRAY_OR_OBJECT_OR_VALUE:
+        return "array or object or value";
+    case JSONB_OBJECT_KEY_OR_CLOSE:
+        return "object key or close";
+    case JSONB_OBJECT_NEXT_KEY_OR_CLOSE:
+        return "object next key or close";
+    case JSONB_OBJECT_VALUE:
+        return "object value";
+    case JSONB_ARRAY_VALUE_OR_CLOSE:
+        return "array value or close";
+    case JSONB_ARRAY_NEXT_VALUE_OR_CLOSE:
+        return "array next value or close";
+    case JSONB_ERROR:
+        return "error";
+    case JSONB_DONE:
+        return "done";
+    default:
+        return "unknown";
     }
 }
 #define TRACE(prev, next)                                                     \
@@ -331,20 +340,35 @@ second_iter:
         unsigned char c = str[i];
         esc_tok = NULL;
         switch (c) {
-        case 0x22: esc_tok = "\\\""; break;
-        case 0x5C: esc_tok = "\\\\"; break;
-        case '\b': esc_tok = "\\b"; break;
-        case '\f': esc_tok = "\\f"; break;
-        case '\n': esc_tok = "\\n"; break;
-        case '\r': esc_tok = "\\r"; break;
-        case '\t': esc_tok = "\\t"; break;
-        default: if (c <= 0x1F) {
-                   static const char tohex[] = "0123456789abcdef";
-                   _esc_tok[4] = tohex[c >> 4];
-                   _esc_tok[5] = tohex[c & 0xF];
-                   _esc_tok[6] = 0;
-                   esc_tok = _esc_tok;
-                 }
+        case 0x22:
+            esc_tok = "\\\"";
+            break;
+        case 0x5C:
+            esc_tok = "\\\\";
+            break;
+        case '\b':
+            esc_tok = "\\b";
+            break;
+        case '\f':
+            esc_tok = "\\f";
+            break;
+        case '\n':
+            esc_tok = "\\n";
+            break;
+        case '\r':
+            esc_tok = "\\r";
+            break;
+        case '\t':
+            esc_tok = "\\t";
+            break;
+        default:
+            if (c <= 0x1F) {
+                static const char tohex[] = "0123456789abcdef";
+                _esc_tok[4] = tohex[c >> 4];
+                _esc_tok[5] = tohex[c & 0xF];
+                _esc_tok[6] = 0;
+                esc_tok = _esc_tok;
+            }
         }
         if (esc_tok) {
             int j;

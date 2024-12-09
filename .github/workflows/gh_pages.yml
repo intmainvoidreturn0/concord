@@ -2,11 +2,11 @@ name: github pages
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Auto-trigger workflow everyday at 00:00
+    - cron: "0 0 * * *" # Auto-trigger workflow everyday at 00:00
   push:
     branches: [master]
   pull_request:
-    
+
 jobs:
   deploy:
     runs-on: ubuntu-latest

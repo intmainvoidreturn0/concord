@@ -23,14 +23,14 @@ if (rc != SQLITE_OK) {  // Checking if something failed while opening the DB fil
     /* As it saw something went wrong, it is going to log a fatal debug message with the error message of what went wrong. */
     log_fatal("[SQLITE] Error when opening the DB file. [%s]", sqlite3_errmsg(db));
 
-    /* Since it failed, the resources must be deallocated. We are using the sqlite3_close for that. 
+    /* Since it failed, the resources must be deallocated. We are using the sqlite3_close for that.
     If something went wrong while trying to close it, the code inside this if will be executed. (NOTE: Yes, even failing to open, you MUST use `sqlite3_close` as said in the sqlite3 docs!) */
-      
+
     if (sqlite3_close(db) != SQLITE_OK) {
         /* Logging a fatal saying that it failed to close the DB. (NOTE: The sqlite3_errmsg function shows the error message of what happened) */
         log_fatal("[SQLITE] Failed to close sqlite DB. [%s]", sqlite3_errmsg(db));
 
-        /* This is not a high-detailed guide, so we are not going to explain how to deal with this case with a lot of details. 
+        /* This is not a high-detailed guide, so we are not going to explain how to deal with this case with a lot of details.
         But you will need to finalize the ongoing statement and execute the sqlite3_close again. */
         abort();
     }
@@ -126,7 +126,7 @@ Here we replace `sqlite3_exec` with `sqlite3_prepare_v2`, as it gives us better 
 
 Now, the command is "`SELECT user_id FROM user_voice WHERE guild_id = %"PRIu64";`", where it wants to get the value of user_id, using as a search parameter the guild_id also saved before.
 
-After using `sqlite3_mprintf` to generate the query, and preparing the statement with `sqlite3_prepare_v2`, we use `sqlite3_step` for **evaluating the statement**. If it returns SQLITE_ROW, then it is going to successfully print the records with `sqlite3_column_int64` (NOTE: **You may wish to use other `sqlite3_column_*` to get other types of records, like TEXT**).
+After using `sqlite3_mprintf` to generate the query, and preparing the statement with `sqlite3_prepare_v2`, we use `sqlite3_step` for **evaluating the statement**. If it returns SQLITE*ROW, then it is going to successfully print the records with `sqlite3_column_int64` (NOTE: \*\*You may wish to use other `sqlite3_column*\*` to get other types of records, like TEXT\*\*).
 
 ## Deleting records
 
@@ -165,7 +165,7 @@ The `.createtable` should be the first one to be executed, it **creates a table*
 
 The command `.retrievedata` **retrieves the user_id saved with `.insertdata`**, using the ID of the guild (guild_id) as a **parameter to search it** and then sends a message in the same channel with the user_id saved.
 
-And finally, the `.deletedata`, which **deletes the record inserted with `.insertdata`** that the guild_id is the same as the ID of the guild that the command is being executed (NOTE: This **doesn't delete the table****, only the record).
+And finally, the `.deletedata`, which **deletes the record inserted with `.insertdata`** that the guild_id is the same as the ID of the guild that the command is being executed (NOTE: This **doesn't delete the table\*\***, only the record).
 
 ```c
 #include <string.h>
@@ -186,7 +186,7 @@ void on_createtable(struct discord *client, const struct discord_message *msg) {
 
     if (rc != SQLITE_OK) {
         log_fatal("[SQLITE] Error when opening the db file. [%s]", sqlite3_errmsg(db));
-      
+
         if (sqlite3_close(db) != SQLITE_OK) {
             log_fatal("[SQLITE] Failed to close sqlite db. [%s]", sqlite3_errmsg(db));
             abort();
@@ -222,7 +222,7 @@ void on_insertdata(struct discord *client, const struct discord_message *msg) {
 
     if (rc != SQLITE_OK) {
         log_fatal("[SQLITE] Error when opening the db file. [%s]", sqlite3_errmsg(db));
-      
+
         if (sqlite3_close(db) != SQLITE_OK) {
             log_fatal("[SQLITE] Failed to close sqlite db. [%s]", sqlite3_errmsg(db));
             abort();
@@ -258,7 +258,7 @@ void on_retrievedata(struct discord *client, const struct discord_message *msg) 
 
     if (rc != SQLITE_OK) {
         log_fatal("[SQLITE] Error when opening the db file. [%s]", sqlite3_errmsg(db));
-      
+
         if (sqlite3_close(db) != SQLITE_OK) {
             log_fatal("[SQLITE] Failed to close sqlite db. [%s]", sqlite3_errmsg(db));
             abort();
@@ -294,7 +294,7 @@ void on_deletedata(struct discord *client, const struct discord_message *msg) {
 
     if (rc != SQLITE_OK) {
         log_fatal("[SQLITE] Error when opening the db file. [%s]", sqlite3_errmsg(db));
-      
+
         if (sqlite3_close(db) != SQLITE_OK) {
             log_fatal("[SQLITE] Failed to close sqlite db. [%s]", sqlite3_errmsg(db));
             abort();

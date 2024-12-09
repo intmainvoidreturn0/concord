@@ -40,7 +40,7 @@ extern "C" {
  * @param[in] path the path to the field from the container POV
  */
 #define CONTAINEROF(ptr, type, path)                                          \
-    ((type *)((char *)(ptr)-offsetof(type, path)))
+    ((type *)((char *)(ptr) - offsetof(type, path)))
 
 /** @defgroup DiscordInternal Internal implementation details
  * @brief Documentation useful when developing or debugging Concord itself
@@ -493,7 +493,7 @@ struct discord_requestor {
          *      their callbacks to be called from the main thread
          */
         QUEUE(struct discord_request) finished;
-    } * queues;
+    } *queues;
 
     /** queue locks */
     struct {
@@ -503,7 +503,7 @@ struct discord_requestor {
         pthread_mutex_t pending;
         /** finished queue lock */
         pthread_mutex_t finished;
-    } * qlocks;
+    } *qlocks;
 };
 
 /**
@@ -752,7 +752,7 @@ struct discord_gateway {
         /**
          * boolean that indicates if the last heartbeat was answered
          * @note used to detect zombie connections
-        */
+         */
         bool hbeat_acknowledged;
         /**
          * Gateway's concept of "now"
@@ -785,7 +785,7 @@ struct discord_gateway {
         int ping_ms;
         /** ping rwlock  */
         pthread_rwlock_t rwlock;
-    } * timer;
+    } *timer;
 
     /** the identify structure for client authentication */
     struct discord_identify id;
@@ -1244,7 +1244,7 @@ struct discord {
         pthread_mutex_t lock;
         /** notify of `count` decrement */
         pthread_cond_t cond;
-    } * workers;
+    } *workers;
 
 #ifdef CCORD_VOICE
     struct discord_voice *vcs;

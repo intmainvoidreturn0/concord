@@ -103,55 +103,55 @@ PP_DEFINE(DISCORD_PERM_MODERATE_MEMBERS 1 << 40)
 /** @CCORD_pub_struct{discord_role} */
 #if GENCODECS_RECIPE & (DATA | JSON)
 PUB_STRUCT(discord_role)
-  /** role id */
-    FIELD_SNOWFLAKE(id)
-  /** role name */
-    FIELD_PTR(name, char, *)
-  /** integer representationof hexadecimal color code */
-    FIELD(color, int, 0)
-  /** if this role is pinned in the user listing */
-    FIELD(hoist, bool, false)
-  /** role icon hash */
-  COND_WRITE(self->icon != NULL)
-    FIELD_PTR(icon, char, *)
-  COND_END
-  /** role unicode emoji */
-  COND_WRITE(self->unicode_emoji != NULL)
-    FIELD_PTR(unicode_emoji, char, *)
-  COND_END
-  /** position of this role */
-    FIELD(position, int, 0)
-  /** permission bit set */
-    FIELD_BITMASK(permissions)
-  /** whether this role is managed by an integration */
-    FIELD(managed, bool, false)
-  /** whether this roleis mentionable */
-    FIELD(mentionable, bool, false)
-  /** the tags this role has */
-  COND_WRITE(self->tags != NULL)
-    FIELD_STRUCT_PTR(tags, discord_role_tag, *)
-  COND_END
+/** role id */
+FIELD_SNOWFLAKE(id)
+/** role name */
+FIELD_PTR(name, char, *)
+/** integer representationof hexadecimal color code */
+FIELD(color, int, 0)
+/** if this role is pinned in the user listing */
+FIELD(hoist, bool, false)
+/** role icon hash */
+COND_WRITE(self->icon != NULL)
+FIELD_PTR(icon, char, *)
+COND_END
+/** role unicode emoji */
+COND_WRITE(self->unicode_emoji != NULL)
+FIELD_PTR(unicode_emoji, char, *)
+COND_END
+/** position of this role */
+FIELD(position, int, 0)
+/** permission bit set */
+FIELD_BITMASK(permissions)
+/** whether this role is managed by an integration */
+FIELD(managed, bool, false)
+/** whether this roleis mentionable */
+FIELD(mentionable, bool, false)
+/** the tags this role has */
+COND_WRITE(self->tags != NULL)
+FIELD_STRUCT_PTR(tags, discord_role_tag, *)
+COND_END
 STRUCT_END
 #endif
 
 /** @CCORD_pub_list{discord_roles} */
 #if GENCODECS_RECIPE & (DATA | JSON)
 PUB_LIST(discord_roles)
-    LISTTYPE_STRUCT(discord_role)
+LISTTYPE_STRUCT(discord_role)
 LIST_END
 #endif
 
 #if GENCODECS_RECIPE & (DATA | JSON)
 STRUCT(discord_role_tag)
-  /** the id of the bot this role belongs to */
-  COND_WRITE(self->bot_id != 0)
-    FIELD_SNOWFLAKE(bot_id)
-  COND_END
-  /** the id of the integration this role belongs to */
-  COND_WRITE(self->integration_id != 0)
-    FIELD_SNOWFLAKE(integration_id)
-  COND_END
-  /** whether this is the guild's premium subscribe role */
-    FIELD(premium_subscribe, bool, false)
+/** the id of the bot this role belongs to */
+COND_WRITE(self->bot_id != 0)
+FIELD_SNOWFLAKE(bot_id)
+COND_END
+/** the id of the integration this role belongs to */
+COND_WRITE(self->integration_id != 0)
+FIELD_SNOWFLAKE(integration_id)
+COND_END
+/** whether this is the guild's premium subscribe role */
+FIELD(premium_subscribe, bool, false)
 STRUCT_END
 #endif

@@ -28,12 +28,13 @@ for (i = 0; i < n; ++i) {
       }
       else if (BAR) {
             ...
-      } 
+      }
       else {
             ...
       }
 }
 ```
+
 Use your surrounding code as a guide.
 
 ### Braces
@@ -55,7 +56,7 @@ if (!x) continue;
 For functions, the opening brace should be on a separate line:
 
 ```c
-int 
+int
 main(int argc, char *argv[])
 {
     return 0;
@@ -97,7 +98,9 @@ struct something {
 
 struct something instance;
 ```
+
 Not okay:
+
 ```c
 typedef struct {
     void *wrong;
@@ -166,9 +169,10 @@ Try to keep your switch statement(s) similar to the following format:
       break;
   }
 ```
+
 ## Conditional Compilation
 
-Conditional compilations are discouraged in this project.  It makes code harder to read and test. 
+Conditional compilations are discouraged in this project. It makes code harder to read and test.
 Please only use the portable C/C++ features in the implementation.
 
 ## Importing
@@ -197,4 +201,5 @@ For subjects that are not covered here, we follow [Linux kernel coding style](ht
 ## Commit and Merge
 
 To avoid creating redundant merge commits, the following methods are recommended:
-* [How to avoid merge commits from git pull when pushing to remote](https://stackoverflow.com/questions/30052104/how-to-avoid-merge-commits-from-git-pull-when-pushing-to-remote)
+
+- [How to avoid merge commits from git pull when pushing to remote](https://stackoverflow.com/questions/30052104/how-to-avoid-merge-commits-from-git-pull-when-pushing-to-remote)

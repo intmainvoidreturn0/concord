@@ -36,21 +36,21 @@ extern "C" {
 
 /* see https://tools.ietf.org/html/rfc6455#section-7.4.1 */
 enum cws_close_reason {
-    CWS_CLOSE_REASON_NORMAL               = 1000,
-    CWS_CLOSE_REASON_GOING_AWAY           = 1001,
-    CWS_CLOSE_REASON_PROTOCOL_ERROR       = 1002,
-    CWS_CLOSE_REASON_UNEXPECTED_DATA      = 1003,
-    CWS_CLOSE_REASON_NO_REASON            = 1005,
-    CWS_CLOSE_REASON_ABRUPTLY             = 1006,
-    CWS_CLOSE_REASON_INCONSISTENT_DATA    = 1007,
-    CWS_CLOSE_REASON_POLICY_VIOLATION     = 1008,
-    CWS_CLOSE_REASON_TOO_BIG              = 1009,
-    CWS_CLOSE_REASON_MISSING_EXTENSION    = 1010,
-    CWS_CLOSE_REASON_SERVER_ERROR         = 1011,
-    CWS_CLOSE_REASON_IANA_REGISTRY_START  = 3000,
-    CWS_CLOSE_REASON_IANA_REGISTRY_END    = 3999,
-    CWS_CLOSE_REASON_PRIVATE_START        = 4000,
-    CWS_CLOSE_REASON_PRIVATE_END          = 4999
+    CWS_CLOSE_REASON_NORMAL = 1000,
+    CWS_CLOSE_REASON_GOING_AWAY = 1001,
+    CWS_CLOSE_REASON_PROTOCOL_ERROR = 1002,
+    CWS_CLOSE_REASON_UNEXPECTED_DATA = 1003,
+    CWS_CLOSE_REASON_NO_REASON = 1005,
+    CWS_CLOSE_REASON_ABRUPTLY = 1006,
+    CWS_CLOSE_REASON_INCONSISTENT_DATA = 1007,
+    CWS_CLOSE_REASON_POLICY_VIOLATION = 1008,
+    CWS_CLOSE_REASON_TOO_BIG = 1009,
+    CWS_CLOSE_REASON_MISSING_EXTENSION = 1010,
+    CWS_CLOSE_REASON_SERVER_ERROR = 1011,
+    CWS_CLOSE_REASON_IANA_REGISTRY_START = 3000,
+    CWS_CLOSE_REASON_IANA_REGISTRY_END = 3999,
+    CWS_CLOSE_REASON_PRIVATE_START = 4000,
+    CWS_CLOSE_REASON_PRIVATE_END = 4999
 };
 
 struct cws_callbacks {
@@ -60,7 +60,9 @@ struct cws_callbacks {
      *
      * @note It is not validated if matches the proposed protocols.
      */
-    void (*on_connect)(void *data, CURL *easy, const char *websocket_protocols);
+    void (*on_connect)(void *data,
+                       CURL *easy,
+                       const char *websocket_protocols);
     /**
      * reports UTF-8 text messages.
      *
@@ -90,7 +92,11 @@ struct cws_callbacks {
      * Clients should not transmit any more data after the server is
      * closed, just call cws_free().
      */
-    void (*on_close)(void *data, CURL *easy, enum cws_close_reason reason, const char *reason_text, size_t reason_text_len);
+    void (*on_close)(void *data,
+                     CURL *easy,
+                     enum cws_close_reason reason,
+                     const char *reason_text,
+                     size_t reason_text_len);
     const void *data;
 };
 
@@ -118,7 +124,9 @@ struct cws_callbacks {
  *
  * @return newly created CURL easy handle, free with cws_free()
  */
-CURL *cws_new(const char *url, const char *websocket_protocols, const struct cws_callbacks *callbacks);
+CURL *cws_new(const char *url,
+              const char *websocket_protocols,
+              const struct cws_callbacks *callbacks);
 
 /**
  * Free a handle created with cws_new()
@@ -147,7 +155,9 @@ bool cws_send(CURL *easy, bool text, const void *msg, size_t msglen);
 /**
  * Helper over cws_send() to send binary messages.
  */
-static inline bool cws_send_binary(CURL *easy, const void *msg, size_t msglen) {
+static inline bool
+cws_send_binary(CURL *easy, const void *msg, size_t msglen)
+{
     return cws_send(easy, false, msg, msglen);
 }
 
@@ -155,7 +165,9 @@ static inline bool cws_send_binary(CURL *easy, const void *msg, size_t msglen) {
  * Helper over cws_send() to send text (UTF-8) messages, will use
  * strlen() on string.
  */
-static inline bool cws_send_text(CURL *easy, const char *string) {
+static inline bool
+cws_send_text(CURL *easy, const char *string)
+{
     return cws_send(easy, true, string, strlen(string));
 }
 
@@ -195,7 +207,10 @@ bool cws_pong(CURL *easy, const char *reason, size_t len);
  *        #NULL.
  * @return #true if sent, #false on errors.
  */
-bool cws_close(CURL *easy, enum cws_close_reason reason, const char *reason_text, size_t reason_text_len);
+bool cws_close(CURL *easy,
+               enum cws_close_reason reason,
+               const char *reason_text,
+               size_t reason_text_len);
 
 /**
  * Add a header field/value pair
@@ -204,7 +219,7 @@ bool cws_close(CURL *easy, enum cws_close_reason reason, const char *reason_text
  * @param field the header field
  * @param value the header value
  */
-void cws_add_header(CURL *easy, const char field[],  const char value[]);
+void cws_add_header(CURL *easy, const char field[], const char value[]);
 
 #ifdef __cplusplus
 }

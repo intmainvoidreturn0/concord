@@ -21,11 +21,11 @@ Concord is an asynchronous C99 Discord API library with minimal external depende
 
 ### Examples
 
-*The following are minimalistic examples, refer to [`examples/`](examples/) for a better overview.*
+_The following are minimalistic examples, refer to [`examples/`](examples/) for a better overview._
 
 #### Slash Commands (new method)
 
-*Note: you need to replace `GUILD_ID` with an actual guild ID, or this example won't compile!*
+_Note: you need to replace `GUILD_ID` with an actual guild ID, or this example won't compile!_
 You can use a macro to do this: `#define GUILD_ID 1234567898765431`
 
 ```c
@@ -94,14 +94,14 @@ int main(void) {
 
 ## Supported operating systems (minimum requirements)
 
-* GNU/Linux 4.x
-* FreeBSD 12
-* NetBSD 8.1
-* Windows 7 (Cygwin)
-* GNU/Hurd 0.9
-* Mac OS X 10.9
+- GNU/Linux 4.x
+- FreeBSD 12
+- NetBSD 8.1
+- Windows 7 (Cygwin)
+- GNU/Hurd 0.9
+- Mac OS X 10.9
 
-*Note: big-endian processors running certain OSes like SPARC Solaris, PowerPC AIX, System Z z/OS or Linux, or MIPS IRIX are NOT supported. There are currently a few issues that prevent some of the logic from correctly on big-endian systems. This will be fixed soon.*
+_Note: big-endian processors running certain OSes like SPARC Solaris, PowerPC AIX, System Z z/OS or Linux, or MIPS IRIX are NOT supported. There are currently a few issues that prevent some of the logic from correctly on big-endian systems. This will be fixed soon._
 
 ## Build Instructions
 
@@ -109,16 +109,16 @@ The only dependency is `curl-7.56.1` or higher. If you are compiling libcurl fro
 
 ### On Windows
 
-* Install **Cygwin**
-* **Make sure that you installed libcurl, gcc, make, and git when you ran the Cygwin installer!**
-* You will want to check the Windows tutorial [here](docs/guides/compiling_on_windows.md)!
-* Mingw64 and Msys2 are currently NOT supported. Please see [this](docs/guides/msys2_and_mingw64.md) for more information.
-* Once installed, compile it normally like you would on UNIX/Linux/OS X/BSD.
-* Note: you will likely need to include `-L/usr/local/lib -I/usr/local/include` on your `gcc` command, or in your `CFLAGS` variable in your Makefile for your bot.
+- Install **Cygwin**
+- **Make sure that you installed libcurl, gcc, make, and git when you ran the Cygwin installer!**
+- You will want to check the Windows tutorial [here](docs/guides/compiling_on_windows.md)!
+- Mingw64 and Msys2 are currently NOT supported. Please see [this](docs/guides/msys2_and_mingw64.md) for more information.
+- Once installed, compile it normally like you would on UNIX/Linux/OS X/BSD.
+- Note: you will likely need to include `-L/usr/local/lib -I/usr/local/include` on your `gcc` command, or in your `CFLAGS` variable in your Makefile for your bot.
 
 ### On Linux, BSD, and Mac OS X
 
-*(note -- `#` means that you should be running as root)*
+_(note -- `#` means that you should be running as root)_
 
 #### Ubuntu and Debian
 
@@ -145,7 +145,9 @@ The only dependency is `curl-7.56.1` or higher. If you are compiling libcurl fro
 ```
 
 #### OS X
-* Note: you will need to install Xcode, or at a minimum, the command-line tools with `xcode-select --install`.
+
+- Note: you will need to install Xcode, or at a minimum, the command-line tools with `xcode-select --install`.
+
 ```console
 $ brew install curl (Homebrew)
 $ port install curl (MacPorts)
@@ -183,35 +185,46 @@ $ make
 ### Special notes for non-Linux systems
 
 You might run into trouble with the compiler and linker not finding your Libcurl headers. You can do something like this:
+
 ```console
 $ CFLAGS=-I<some_path> LDFLAGS=-L<some_path> make
 ```
+
 For instance, on a FreeBSD system:
+
 ```console
 $ CFLAGS=-I/usr/local/include LDFLAGS=-L/usr/local/lib make
 ```
+
 On OS X using MacPorts:
+
 ```console
 $ CFLAGS=-I/opt/local/include LDFLAGS=-L/opt/local/lib make
 ```
+
 On OS X using a self-compiled libcurl:
+
 ```console
 $ CFLAGS=-I/usr/local/include LDFLAGS=-L/usr/local/include make
 ```
+
 On Windows with Cygwin, you might need to pass both arguments to use POSIX threading:
+
 ```console
 $ CFLAGS="-pthread -lpthread" make
 ```
 
 ### Special note about linking Concord against another library
+
 In some cases, you might want to link Concord into a shared object, or link it as a shared object into another shared
-object. In that case, you will need to compile Concord with `CFLAGS="-fpic" make`. 
+object. In that case, you will need to compile Concord with `CFLAGS="-fpic" make`.
 
 ## Configuring Concord
 
-[discord\_config\_init()][discord-config-init] is the initialization method that allows configuring your bot without recompiling.
+[discord_config_init()][discord-config-init] is the initialization method that allows configuring your bot without recompiling.
 
 The following outlines `config.json` fields:
+
 ```js
 {
   "logging": { // logging directives
@@ -228,7 +241,7 @@ The following outlines `config.json` fields:
   },
   "discord": { // discord directives
     "token": "YOUR-BOT-TOKEN",         // replace with your bot token
-    "default_prefix": {                 
+    "default_prefix": {
       "enable": false,                 // enable default command prefix
       "prefix": "YOUR-COMMANDS-PREFIX" // replace with your prefix
     }
@@ -236,13 +249,14 @@ The following outlines `config.json` fields:
   ... // here you can add your custom fields *
 }
 ```
-\* *Your custom field contents can be fetched with [discord\_config\_get\_field()][discord-config-get-field]*
+
+\* _Your custom field contents can be fetched with [discord_config_get_field()][discord-config-get-field]_
 
 ## Test Copycat-Bot
 
-1. Get your bot token and add it to `config.json`, 
-   by assigning it to discord's "token" field. There are 
-   well written instructions from 
+1. Get your bot token and add it to `config.json`,
+   by assigning it to discord's "token" field. There are
+   well written instructions from
    [discord-irc](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token)
    explaining how to get your bot token and adding it to a server.
 2. Build example executables:
@@ -268,43 +282,46 @@ The following outlines special flags and targets to override the default Makefil
 
 ### Special compilation flags
 
-* `-DCCORD_SIGINTCATCH`
-    * By default Concord will not shutdown gracefully when a SIGINT is received (i.e. <kbd>Ctrl</kbd>+<kbd>c</kbd>), enable this flag if you wish it to be handled for you.
-* `-DCCORD_DEBUG_WEBSOCKETS`
-    * Enable verbose debugging for WebSockets communication.
-* `-DCCORD_DEBUG_HTTP`
-    * Enable verbose debugging for HTTP communication.
+- `-DCCORD_SIGINTCATCH`
+  - By default Concord will not shutdown gracefully when a SIGINT is received (i.e. <kbd>Ctrl</kbd>+<kbd>c</kbd>), enable this flag if you wish it to be handled for you.
+- `-DCCORD_DEBUG_WEBSOCKETS`
+  - Enable verbose debugging for WebSockets communication.
+- `-DCCORD_DEBUG_HTTP`
+  - Enable verbose debugging for HTTP communication.
 
-*Example:*
+_Example:_
+
 ```console
 $ CFLAGS="-DCCORD_SIGINTCATCH -DCCORD_DEBUG_HTTP" make
 ```
 
 ### Special targets
 
-* `make shared`
-    * Produce a dynamically-linked version of Concord. This Makefile is intended for GNU-style compilers, such as `gcc` or `clang`.
-* `make shared_osx`
-    * Produce a dynamically-linked version of Concord, for OS X and Darwin systems. 
-* `make voice`
-    * Enable experimental Voice Connection handling - not production ready.
-* `make debug`
-    * Enable some flags useful while developing, such as `-O0` and `-g`
+- `make shared`
+  - Produce a dynamically-linked version of Concord. This Makefile is intended for GNU-style compilers, such as `gcc` or `clang`.
+- `make shared_osx`
+  - Produce a dynamically-linked version of Concord, for OS X and Darwin systems.
+- `make voice`
+  - Enable experimental Voice Connection handling - not production ready.
+- `make debug`
+  - Enable some flags useful while developing, such as `-O0` and `-g`
 
 ## Installing Concord
 
-*(note -- `#` means that you should be running as root)*
+_(note -- `#` means that you should be running as root)_
 
 ```console
 # make install
 ```
 
 This will install the headers and library files into $PREFIX. You can override this as such:
+
 ```console
 # PREFIX=/opt/concord make install
 ```
 
 ### Cross-compiling Concord
+
 To cross-compile Concord, see the manual [here](docs/guides/cross_compiling.md).
 
 ### Included dependencies
@@ -312,7 +329,7 @@ To cross-compile Concord, see the manual [here](docs/guides/cross_compiling.md).
 The following are `stable` and well documented dependencies that are packaged with Concord and can be included to your projects:
 
 | File                                                  | Description                                        |
-|-------------------------------------------------------|----------------------------------------------------|
+| ----------------------------------------------------- | -------------------------------------------------- |
 | [cog-utils](https://github.com/Cogmasters/cog-utils)  | General purpose functions aimed at portability     |
 | [log.c](https://github.com/rxi/log.c)\*               | A simple C99 logging library                       |
 | [carray](https://github.com/c-ware/carray)\*          | Macro-based implementation of type-safe arrays     |
@@ -321,9 +338,10 @@ The following are `stable` and well documented dependencies that are packaged wi
 | [json-build](https://github.com/lcsmuller/json-build) | Tiny, zero-allocation JSON serializer              |
 | [jsmn-find](https://github.com/lcsmuller/jsmn-find)   | Tiny, zero-allocation JSON tokenizer               |
 
-\* *Concord uses its own modified version that may be not up to date with the original*
+\* _Concord uses its own modified version that may be not up to date with the original_
 
 Note that included headers must be `concord/` prefixed:
+
 ```c
 #include <concord/discord.h>
 #include <concord/log.h>
@@ -331,7 +349,7 @@ Note that included headers must be `concord/` prefixed:
 
 ### Standalone executable
 
-#### GCC 
+#### GCC
 
 ```console
 $ gcc myBot.c -o myBot -pthread -ldiscord -lcurl
@@ -344,23 +362,26 @@ $ clang myBot.c -o myBot -pthread -ldiscord -lcurl
 ```
 
 #### UNIX C compilers
+
 ##### This includes the following compilers:
 
-* IBM XL C/C++ (AIX, z/OS, IBM i)
-* Sun/Oracle Studio (Solaris)
-* IRIX MIPSpro C++ (IRIX) -- NOTE: currently not supported
-* HP aCC (HP-UX)
-* Compaq C (Tru64 UNIX) -- NOTE: also currently not supported
-*Note: if you want to actually compile this on one of the systems listed above, please see the "Compiling on old computers" guide.*
+- IBM XL C/C++ (AIX, z/OS, IBM i)
+- Sun/Oracle Studio (Solaris)
+- IRIX MIPSpro C++ (IRIX) -- NOTE: currently not supported
+- HP aCC (HP-UX)
+- Compaq C (Tru64 UNIX) -- NOTE: also currently not supported
+  _Note: if you want to actually compile this on one of the systems listed above, please see the "Compiling on old computers" guide._
 
 ```console
 $ cc myBot.c -o myBot -ldiscord -lcurl -lpthread
 ```
 
 Note: some systems such as **Cygwin** require you to do this:
+
 ```console
 $ gcc myBot.c -o myBot -pthread -lpthread -ldiscord -lcurl
 ```
+
 (this links against libpthread.a in `/usr/lib`)
 
 ## Recommended debuggers
@@ -374,6 +395,7 @@ Using valgrind to check for memory leaks:
 ```console
 valgrind --leak-check=full ./myBot
 ```
+
 For a more comprehensive guide check [Valgrind's Quick Start](https://valgrind.org/docs/manual/quick-start.html).
 
 ### GDB
@@ -383,11 +405,15 @@ Using GDB to check for runtime errors, such as segmentation faults:
 ```console
 $ gdb ./myBot
 ```
+
 And then execute your bot from the gdb environment:
+
 ```console
 (gdb) run
 ```
+
 If the program has crashed, get a backtrace of the function calls leading to it:
+
 ```console
 (gdb) bt
 ```
