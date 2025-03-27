@@ -19,6 +19,6 @@
     }
   },
   "test": {
-      "channel_id": "TEST-CHANNEL-ID"
+    "channel_id": "TEST-CHANNEL-ID"
   }
 }

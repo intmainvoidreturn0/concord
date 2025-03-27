@@ -208,7 +208,8 @@ logconf_setup(struct logconf *conf, const char id[], FILE *fp)
                                  "%.*s", (int)f2->v.len, file + f2->v.pos);
                 }
                 if ((f1 = jsmnf_find(f, file, "disable_modules", 15))
-                    && f1->size) {
+                    && f1->size)
+                {
                     int i = 0;
 
                     conf->disable_modules.ids =

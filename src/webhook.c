@@ -206,8 +206,9 @@ discord_execute_webhook(struct discord *client,
         ASSERT_S(res != QUERIEC_ERROR_NOMEM, "Out of bounds write attempt");
     }
     if (params->thread_id) {
-        res = queriec_snprintf_add(&queriec, query, "thread_id", sizeof("thread_id"),
-                                       qbuf, sizeof(qbuf), "%" PRIu64, params->thread_id);
+        res = queriec_snprintf_add(&queriec, query, "thread_id",
+                                   sizeof("thread_id"), qbuf, sizeof(qbuf),
+                                   "%" PRIu64, params->thread_id);
         ASSERT_S(res != QUERIEC_ERROR_NOMEM, "Out of bounds write attempt");
     }
 

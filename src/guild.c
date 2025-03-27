@@ -191,23 +191,25 @@ discord_list_guild_members(struct discord *client,
 
         char buf[32];
         if (params->limit) {
-            res = queriec_snprintf_add(&queriec, query, "limit", sizeof("limit"),
-                                       buf, sizeof(buf), "%d", params->limit);
-            ASSERT_S(res != QUERIEC_ERROR_NOMEM, "Out of bounds write attempt");
+            res =
+                queriec_snprintf_add(&queriec, query, "limit", sizeof("limit"),
+                                     buf, sizeof(buf), "%d", params->limit);
+            ASSERT_S(res != QUERIEC_ERROR_NOMEM,
+                     "Out of bounds write attempt");
         }
         if (params->after) {
-            res = queriec_snprintf_add(&queriec, query, "after", sizeof("after"),
-                                       buf, sizeof(buf), "%" PRIu64,
-                                       params->after);
-            ASSERT_S(res != QUERIEC_ERROR_NOMEM, "Out of bounds write attempt");
+            res = queriec_snprintf_add(&queriec, query, "after",
+                                       sizeof("after"), buf, sizeof(buf),
+                                       "%" PRIu64, params->after);
+            ASSERT_S(res != QUERIEC_ERROR_NOMEM,
+                     "Out of bounds write attempt");
         }
     }
 
     DISCORD_ATTR_LIST_INIT(attr, discord_guild_members, ret, NULL);
 
     return discord_rest_run(&client->rest, &attr, NULL, HTTP_GET,
-                            "/guilds/%" PRIu64 "/members%s", guild_id,
-                            query);
+                            "/guilds/%" PRIu64 "/members%s", guild_id, query);
 }
 
 CCORDcode
@@ -232,17 +234,20 @@ discord_search_guild_members(struct discord *client,
             char *pe_query =
                 curl_escape(params->query, (int)strlen(params->query));
 
-            res = queriec_snprintf_add(&queriec, query, "query",
-                                       sizeof("query"), buf, sizeof(buf), "%s",
-                                       pe_query);
-            ASSERT_S(res != QUERIEC_ERROR_NOMEM, "Out of bounds write attempt");
+            res =
+                queriec_snprintf_add(&queriec, query, "query", sizeof("query"),
+                                     buf, sizeof(buf), "%s", pe_query);
+            ASSERT_S(res != QUERIEC_ERROR_NOMEM,
+                     "Out of bounds write attempt");
 
             curl_free(pe_query);
         }
         if (params->limit) {
-            res = queriec_snprintf_add(&queriec, query, "limit", sizeof("limit"),
-                                       buf, sizeof(buf), "%d", params->limit);
-            ASSERT_S(res != QUERIEC_ERROR_NOMEM, "Out of bounds write attempt");
+            res =
+                queriec_snprintf_add(&queriec, query, "limit", sizeof("limit"),
+                                     buf, sizeof(buf), "%d", params->limit);
+            ASSERT_S(res != QUERIEC_ERROR_NOMEM,
+                     "Out of bounds write attempt");
         }
     }
 
@@ -624,33 +629,36 @@ discord_get_guild_prune_count(struct discord *client,
         if (params->days) {
             res = queriec_snprintf_add(&queriec, query, "days", sizeof("days"),
                                        buf, sizeof(buf), "%d", params->days);
-            ASSERT_S(res != QUERIEC_ERROR_NOMEM, "Out of bounds write attempt");
+            ASSERT_S(res != QUERIEC_ERROR_NOMEM,
+                     "Out of bounds write attempt");
         }
         if (params->include_roles && params->include_roles->size) {
             char roles[1024];
             int i = 0, offset = 0;
 
             for (; i < params->include_roles->size - 1; ++i) {
-                offset += snprintf(roles + offset, sizeof(roles) - (size_t)offset,
-                                   "%" PRIu64 ",", params->include_roles->array[i]);
+                offset +=
+                    snprintf(roles + offset, sizeof(roles) - (size_t)offset,
+                             "%" PRIu64 ",", params->include_roles->array[i]);
                 ASSERT_NOT_OOB(offset, sizeof(roles));
             }
-            offset += snprintf(roles + offset, sizeof(roles) - (size_t)offset,
-                               "%" PRIu64 ",", params->include_roles->array[i]);
+            offset +=
+                snprintf(roles + offset, sizeof(roles) - (size_t)offset,
+                         "%" PRIu64 ",", params->include_roles->array[i]);
             ASSERT_NOT_OOB(offset, sizeof(roles));
 
             res = queriec_snprintf_add(&queriec, query, "include_roles",
                                        sizeof("include_roles"), roles,
                                        sizeof(roles), "%s", roles);
-            ASSERT_S(res != QUERIEC_ERROR_NOMEM, "Out of bounds write attempt");
+            ASSERT_S(res != QUERIEC_ERROR_NOMEM,
+                     "Out of bounds write attempt");
         }
     }
 
     DISCORD_ATTR_INIT(attr, discord_prune_count, ret, NULL);
 
     return discord_rest_run(&client->rest, &attr, NULL, HTTP_GET,
-                            "/guilds/%" PRIu64 "/prune%s", guild_id,
-                            query);
+                            "/guilds/%" PRIu64 "/prune%s", guild_id, query);
 }
 
 CCORDcode

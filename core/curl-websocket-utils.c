@@ -35,11 +35,11 @@
 static void
 _cws_sha1(const void *input, const size_t input_len, void *output)
 {
-  SHA1_CTX ctx;
+    SHA1_CTX ctx;
 
-  SHA1Init(&ctx);
-  SHA1Update(&ctx, input, input_len);
-  SHA1Final(output, &ctx);
+    SHA1Init(&ctx);
+    SHA1Update(&ctx, input, input_len);
+    SHA1Final(output, &ctx);
 }
 
 static inline void
@@ -47,8 +47,7 @@ _cws_debug(const char *prefix, const void *buffer, size_t len)
 {
     const uint8_t *bytes = buffer;
     size_t i;
-    if (prefix)
-        fprintf(stderr, "%s:", prefix);
+    if (prefix) fprintf(stderr, "%s:", prefix);
     for (i = 0; i < len; i++) {
         uint8_t b = bytes[i];
         if (isprint(b))
@@ -56,14 +55,14 @@ _cws_debug(const char *prefix, const void *buffer, size_t len)
         else
             fprintf(stderr, " %#04x", b);
     }
-    if (prefix)
-        fprintf(stderr, "\n");
+    if (prefix) fprintf(stderr, "\n");
 }
 
 static void
 _cws_encode_base64(const uint8_t *input, const size_t input_len, char *output)
 {
-    static const char base64_map[65] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    static const char base64_map[65] =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
     size_t i, o;
     uint8_t c;
 
@@ -92,7 +91,8 @@ _cws_encode_base64(const uint8_t *input, const size_t input_len, char *output)
 
         output[o++] = base64_map[64];
         output[o++] = base64_map[64];
-    } else if (i + 2 == input_len) {
+    }
+    else if (i + 2 == input_len) {
         c = (input[i] & (((1 << 6) - 1) << 2)) >> 2;
         output[o++] = base64_map[c];
 
@@ -123,8 +123,9 @@ _cws_get_random(void *buffer, size_t len)
             bytes += r;
         } while (bytes < bytes_end);
         close(fd);
-    } else {
-      fallback:
+    }
+    else {
+    fallback:
         for (; bytes < bytes_end; bytes++)
             *bytes = random() & 0xff;
     }
@@ -149,11 +150,12 @@ _cws_trim(const char **p_buffer, size_t *p_len)
 }
 
 static inline bool
-_cws_header_has_prefix(const char *buffer, const size_t buflen, const char *prefix)
+_cws_header_has_prefix(const char *buffer,
+                       const size_t buflen,
+                       const char *prefix)
 {
     const size_t prefixlen = strlen(prefix);
-    if (buflen < prefixlen)
-        return false;
+    if (buflen < prefixlen) return false;
     return strncasecmp(buffer, prefix, prefixlen) == 0;
 }
 

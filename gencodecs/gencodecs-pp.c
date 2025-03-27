@@ -68,15 +68,14 @@ main(void)
             switch (*p) {
             case '"':
                 if (state & STRING) {
-                    if (state & DESC) 
+                    if (state & DESC)
                         fputc('\n', stdout);
                     else
                         fputc(*p, stdout);
                     state &= ~STRING;
                 }
                 else {
-                    if (!(state & DESC)) 
-                        fputc(*p, stdout);
+                    if (!(state & DESC)) fputc(*p, stdout);
                     state |= STRING;
                 }
                 ++p;

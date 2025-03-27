@@ -73,13 +73,13 @@ ccord_global_init()
         for (int i = 0; i < 2; i++) {
             const int on = 1;
 
-            #ifdef FIOCLEX
-                if (0 != ioctl(shutdown_fds[i], FIOCLEX, NULL)) {
-                    fputs("Failed to make shutdown pipe close on execute\n",
-                        stderr);
-                    goto fail_pipe_init;
-                }
-            #endif
+#ifdef FIOCLEX
+            if (0 != ioctl(shutdown_fds[i], FIOCLEX, NULL)) {
+                fputs("Failed to make shutdown pipe close on execute\n",
+                      stderr);
+                goto fail_pipe_init;
+            }
+#endif
 
             if (0 != ioctl(shutdown_fds[i], (int)FIONBIO, &on)) {
                 fputs("Failed to make shutdown pipe nonblocking\n", stderr);
@@ -130,12 +130,12 @@ discord_dup_shutdown_fd(void)
     if (-1 != (fd = dup(shutdown_fds[0]))) {
         const int on = 1;
 
-        #ifdef FIOCLEX
-            if (0 != ioctl(fd, FIOCLEX, NULL)) {
-                close(fd);
-                return -1;
-            }
-        #endif
+#ifdef FIOCLEX
+        if (0 != ioctl(fd, FIOCLEX, NULL)) {
+            close(fd);
+            return -1;
+        }
+#endif
 
         if (0 != ioctl(fd, (int)FIONBIO, &on)) {
             close(fd);

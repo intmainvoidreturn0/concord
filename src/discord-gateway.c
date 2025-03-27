@@ -632,7 +632,8 @@ _ws_curl_debug_dump(const char *text,
             /* check for 0D0A; if found, skip past and start a new line of
              * output */
             if ((i + c + 1 < size) && ptr[i + c] == 0x0D
-                && ptr[i + c + 1] == 0x0A) {
+                && ptr[i + c + 1] == 0x0A)
+            {
                 i += (c + 2 - width);
                 break;
             }
@@ -641,7 +642,8 @@ _ws_curl_debug_dump(const char *text,
                                                                 : '.');
             /* check again for 0D0A, to avoid an extra \n if it's at width */
             if ((i + c + 2 < size) && ptr[i + c + 1] == 0x0D
-                && ptr[i + c + 2] == 0x0A) {
+                && ptr[i + c + 2] == 0x0A)
+            {
                 i += (c + 3 - width);
                 break;
             }

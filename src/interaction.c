@@ -144,8 +144,9 @@ discord_create_followup_message(struct discord *client,
     queriec_init(&queriec, sizeof(query));
 
     if (params->thread_id) {
-        int res = queriec_snprintf_add(&queriec, query, "thread_id", sizeof("thread_id"),
-                                       qbuf, sizeof(qbuf), "%" PRIu64, params->thread_id);
+        int res = queriec_snprintf_add(&queriec, query, "thread_id",
+                                       sizeof("thread_id"), qbuf, sizeof(qbuf),
+                                       "%" PRIu64, params->thread_id);
         ASSERT_S(res != QUERIEC_ERROR_NOMEM, "Out of bounds write attempt");
     }
 

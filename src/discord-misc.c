@@ -197,8 +197,7 @@ discord_embed_add_field(struct discord_embed *embed,
     if (name) cog_strndup(name, strlen(name), &field.name);
     if (value) cog_strndup(value, strlen(value), &field.value);
 
-    if (!embed->fields)
-        embed->fields = calloc(1, sizeof *embed->fields);
+    if (!embed->fields) embed->fields = calloc(1, sizeof *embed->fields);
     carray_append(embed->fields, field);
 }
 

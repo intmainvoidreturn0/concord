@@ -5,7 +5,7 @@
 #include "discord.h"
 #include "discord-internal.h"
 
-#define GATEWAY_CB(EV) client->gw.cbs[1][EV]
+#define GATEWAY_CB(EV)    client->gw.cbs[1][EV]
 #define ASSIGN_CB(EV, CB) GATEWAY_CB(EV) = (discord_ev_event)CB
 
 void

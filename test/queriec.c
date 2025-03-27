@@ -12,7 +12,8 @@ valid_single_query(void)
     struct queriec queriec;
     queriec_init(&queriec, sizeof(query));
 
-    int res = queriec_add(&queriec, query, "test", sizeof("test"), "true", sizeof("true"));
+    int res = queriec_add(&queriec, query, "test", sizeof("test"), "true",
+                          sizeof("true"));
     ASSERT_EQ(QUERIEC_OK, res);
 
     ASSERT_STR_EQ("?test=true", query);
@@ -28,10 +29,12 @@ valid_multiple_queries(void)
     struct queriec queriec;
     queriec_init(&queriec, sizeof(query));
 
-    int res = queriec_add(&queriec, query, "test", sizeof("test"), "true", sizeof("true"));
+    int res = queriec_add(&queriec, query, "test", sizeof("test"), "true",
+                          sizeof("true"));
     ASSERT_EQ(QUERIEC_OK, res);
 
-    res = queriec_add(&queriec, query, "test2", sizeof("test2"), "false", sizeof("false"));
+    res = queriec_add(&queriec, query, "test2", sizeof("test2"), "false",
+                      sizeof("false"));
     ASSERT_EQ(QUERIEC_OK, res);
 
     ASSERT_STR_EQ("?test=true&test2=false", query);
@@ -47,10 +50,12 @@ valid_overflow_check(void)
     struct queriec queriec;
     queriec_init(&queriec, sizeof(query));
 
-    int res = queriec_add(&queriec, query, "test", sizeof("test"), "true", sizeof("true"));
+    int res = queriec_add(&queriec, query, "test", sizeof("test"), "true",
+                          sizeof("true"));
     ASSERT_EQ(QUERIEC_OK, res);
 
-    res = queriec_add(&queriec, query, "test2", sizeof("test2"), "false", sizeof("false"));
+    res = queriec_add(&queriec, query, "test2", sizeof("test2"), "false",
+                      sizeof("false"));
     ASSERT_EQ(QUERIEC_ERROR_NOMEM, res);
 
     ASSERT_STR_EQ("?test=true", query);
